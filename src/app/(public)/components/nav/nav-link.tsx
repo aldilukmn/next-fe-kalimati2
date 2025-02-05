@@ -1,4 +1,4 @@
-import { screenSize } from '@/utils/screen-size';
+import { useScreenSize } from '@/utils/screen-size';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from "react";
@@ -13,7 +13,7 @@ interface NavLinkProps {
 const Navlink: React.FC<NavLinkProps> = ({to, children, className, needHover}) => {
   const location = usePathname();
   const isActive: boolean = location === to;
-  const { width } = screenSize();
+  const { width } = useScreenSize();
   return (
     <Link href={to} className={`relative group duration-300 ${className} ${isActive && !needHover ? 'bg-blue_paisley' : !needHover ? 'bg-serenity_sky hover:bg-blue_paisley' : 'text-blue_paisley'}`}>
       {children}

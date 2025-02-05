@@ -1,11 +1,11 @@
 'use client';
-import { screenSize } from '@/utils/screen-size';
 import Link from 'next/link';
 import { useState } from 'react';
 import Navlink from './nav-link';
+import { useScreenSize } from '@/utils/screen-size';
 
 export default function Navbar() {
-  const { width } = screenSize();
+  const { width } = useScreenSize();
   const [isNav, setIsNav] = useState(false);
     const handleClick = () => {
     setIsNav(!isNav)
