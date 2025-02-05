@@ -11,7 +11,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        shallow_sea: "#AAD0D9",
+        blue_paisley: "#0082A6",
+        snow_day: "#F7F5ED",
+        serenity_sky: "#C4DEE3"
       },
     },
   },
