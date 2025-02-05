@@ -10,13 +10,11 @@ export default function Time() {
     const interval = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
-
-    setTimeout(() => {
-      setIsVisible(true)
-    }, 50);
-    
+    setIsVisible(true)
     return () => clearInterval(interval);
-  }, [])
+  }, []);
+
+  if (!currentTime) return null;
 
   return (
     <>
