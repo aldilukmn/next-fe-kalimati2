@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import Navlink from './nav-link';
-import { useScreenSize } from '@/utils/screen-size';
+import { useScreenSize } from '@/app/utils/screen-size';
 
 export default function Navbar() {
   const { width } = useScreenSize();
@@ -12,7 +12,7 @@ export default function Navbar() {
   }
   return (
     <div>
-      <section className="flex justify-between lg:px-16 md:px-10 border-b-2 py-2 mt-10 font-semibold items-center rounded-xl">
+      <section className="flex justify-between lg:px-16 px-10 border-b-2 py-2 mt-10 font-semibold items-center rounded-xl">
         <figure>
           <Link href={"/"}>
             <img src="https://res.cloudinary.com/dhtfq9yw8/image/upload/v1717920310/uptd%20sdn%202%20kalimati/svg/vapqm0latukpxjjawzfu.svg" width={75} alt="logo" />

@@ -14,8 +14,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { AppDispatch, RootState } from '@/app/config/redux/store';
 import { setIsLoading } from '@/app/config/redux/action/loading.action';
-import { firstCapitalizeWord } from '@/utils/first-cap';
-import showToast from '@/helpers/show-toast';
+import { firstCapitalizeWord } from '@/app/utils/first-cap';
+import showToast from '@/app/helpers/show-toast';
 import { setToastMessage } from '@/app/config/redux/action/toast-action';
 
 export default function Login() {
@@ -70,7 +70,7 @@ export default function Login() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="bg-blue_paisley 2xl:mx-[28rem] xl:mx-[25rem] md:mx-[10rem] mt-20 mb-28 px-10 text-center pt-6 pb-10 rounded-md relative">
+      <form onSubmit={handleSubmit} className="bg-blue_paisley 2xl:mx-[28rem] xl:mx-[25rem] md:mx-[10rem] mt-28 mb-28 px-10 text-center pt-6 pb-10 rounded-xl relative">
         <h4 className="text-white font-semibold md:text-xl tracking-widest">Selamat Datang</h4>
         <h3 className="text-white font-semibold md:text-xl tracking-widest">Login sebagai Admin</h3>
         <span className=" w-full bg-white border-b-4 block mt-3 mb-5 rounded-full"></span>

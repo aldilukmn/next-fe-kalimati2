@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from './config/redux/store';
 import { setToastMessage } from './config/redux/action/toast-action';
-import showToast from '@/helpers/show-toast';
+import showToast from '@/app/helpers/show-toast';
 
 export default function ClientToast() {
   const dispatch = useDispatch<AppDispatch>();

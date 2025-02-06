@@ -1,4 +1,4 @@
-import { firstCapitalizeWord } from '@/utils/first-cap';
+import { firstCapitalizeWord } from '@/app/utils/first-cap';
 import { toast } from "react-toastify";
 
 const showToast = (msg: string, status: 'success' | 'error') => {
