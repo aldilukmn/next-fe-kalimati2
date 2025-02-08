@@ -1,13 +1,5 @@
 'use client';
-// import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-// import { setIsLoading } from "../../redux/action/isLoading";
-// import UserType from "./type";
-// import LoginUser from "./loginContext";
-// import { firstCapitalizeWord } from "../../libs";
-// import { useNavigate } from "react-router-dom";
-// import { setToastMessage } from "../../redux/action/toast";
-// import { showToast } from "../../helpers";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useRouter } from 'next/navigation';
@@ -70,13 +62,13 @@ export default function Login() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="bg-blue_paisley 2xl:mx-[28rem] xl:mx-[25rem] md:mx-[10rem] mt-28 mb-28 px-10 text-center pt-6 pb-10 rounded-xl relative">
-        <h4 className="text-white font-semibold md:text-xl tracking-widest">Selamat Datang</h4>
-        <h3 className="text-white font-semibold md:text-xl tracking-widest">Login sebagai Admin</h3>
-        <span className=" w-full bg-white border-b-4 block mt-3 mb-5 rounded-full"></span>
-        <label htmlFor="username" className="block text-start mb-2 font-semibold tracking-widest text-white border-b-2 w-fit">Username</label>
+      <form onSubmit={handleSubmit} className="2xl:mx-[28rem] xl:mx-[25rem] md:mx-[10rem] mt-28 mb-28 px-10 text-center pt-6 pb-10 rounded-xl relative border-blue_paisley border">
+        <h4 className="text-blue_paisley font-semibold md:text-xl tracking-widest">Selamat Datang</h4>
+        <h3 className="text-blue_paisley font-semibold md:text-xl tracking-widest">Login sebagai Admin</h3>
+        <span className=" w-full border-blue_paisley border-b-4 block mt-3 mb-5 rounded-full"></span>
+        <label htmlFor="username" className="block text-start mb-2 font-semibold tracking-widest text-blue_paisley border-b-2 border-b-blue_paisley w-fit">Username</label>
         <input placeholder="Username" id="username" name="username" type="text" className="w-full p-2 tracking-widest rounded-md outline-none border-2 transition-all duration-300 border-serenity_sky focus:border-blue_paisley mb-5 text-black" onChange={handleOnChange} value={username}></input>
-        <label htmlFor="password" className="block text-start mb-2 font-semibold tracking-widest text-white border-b-2 w-fit ">Password</label>
+        <label htmlFor="password" className="block text-start mb-2 font-semibold tracking-widest text-blue_paisley border-b-2 border-b-blue_paisley w-fit ">Password</label>
         <div className="relative">
           <input placeholder="Password" id="password" name="password" type={`${seePassword ? 'text' : 'password'}`} className="w-full p-2 tracking-widest rounded-md outline-blue-soft mb-8 text-black outline-none border-2 transition-all duration-300 border-serenity_sky focus:border-blue_paisley" onChange={handleOnChange} value={password}>
           </input>

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from './(public)/components/nav/nav-bar';
-import Footer from './(public)/components/footer';
 import { ToastContainer } from 'react-toastify'
 import ReduxProvider from './redux-provider';
 import ClientToast from './client-toast';
 import TimeDynamic from './(public)/components/time';
+import FooterCustome from './(public)/components/footer/footer';
 
 export const metadata: Metadata = {
   title: "UPTD SDN 2 KALIMATI",
@@ -29,7 +29,7 @@ export default function RootLayout({
             <main className='min-h-screen'>
               {children}
             </main>
-            <Footer />
+            <FooterCustome />
             <ToastContainer />
             <ClientToast/>
           </div>

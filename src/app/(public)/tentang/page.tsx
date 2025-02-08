@@ -1,3 +1,4 @@
+'use-client';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CardCustome from '../components/card-custome/card-custome';
