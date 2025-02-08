@@ -56,8 +56,8 @@ export default function page() {
   }, [dispatch]);
   return (
     <>
-      <section>
-        <h1 className="font-bold md:text-xl text-center mt-10 mb-10">Guru dan Tenaga Kependidikan</h1>
+      <section className='w-[90%] mx-auto mt-20'>
+        <h1 className="font-bold md:text-2xl text-center mb-10 text-blue_paisley border-b-blue_paisley border-b-2 max-w-fit mx-auto">Guru dan Tenaga Kependidikan</h1>
         {
           isLoading ? (
             <SkeletonLoader />
@@ -65,7 +65,7 @@ export default function page() {
             headOfSchool && (
               <div className="mb-5 md:w-80 mx-auto text-white" onClick={toggleHead}>
                 <h3 className={`bg-blue_paisley text-center tracking-widest font-semibold py-3 rounded-t-md cursor-pointer text-xl transition-all duration-500 ease-in-out ${isHead ? 'rounded-t-md' : 'rounded-md'}`}>{firstCapitalizeWord(headOfSchool.status)}</h3>
-                <div className={`overflow-hidden transition-all duration-500 ease-in-out bg-blue-soft flex flex-col items-center ${isHead ? 'max-h-dvh py-5 opacity-100 rounded-b-md' : 'max-h-0 opacity-0'}`}>
+                <div className={`bg-blue_paisley overflow-hidden transition-all duration-500 ease-in-out bg-blue-soft flex flex-col items-center ${isHead ? 'max-h-dvh py-5 opacity-100 rounded-b-md' : 'max-h-0 opacity-0'}`}>
                   <img src={headOfSchool.image_url} alt="Kepala Sekolah" width={125} className="rounded-full mx-auto mb-5" />
                   <h4 className="tracking-wide font-semibold">{headOfSchool.name}</h4>
                   <h4>NIP. {headOfSchool.nip}</h4>
@@ -82,13 +82,13 @@ export default function page() {
             {
              gtk?.filter(val => !val.status.includes('kepala sekolah')).map((value, index) => (
                <div key={index}>
-                <h3 className={`text-xl tracking-widest font-semibold text-center cursor-pointer py-3 bg-blue transition-all duration-500 ease-in-out ${isOpen === index ? 'rounded-t-md' : 'rounded-md'}`} onClick={() => toggleParagraph(index)}>
+                <h3 className={`bg-blue_paisley text-xl tracking-widest font-semibold text-center cursor-pointer py-3 bg-blue transition-all duration-500 ease-in-out ${isOpen === index ? 'rounded-t-md' : 'rounded-md'}`} onClick={() => toggleParagraph(index)}>
                   { value.class_gtk && value.class_gtk.includes('pjok') ? 'Guru PJOK' :
                     value.class_gtk && value.class_gtk.includes('pai') ? 'Guru PAI' :
-                    value.class_gtk ? `Guru Kelas ${value.class_gtk}` : 'Penjaga'
+                  value.class_gtk ? `Guru Kelas ${value.class_gtk}` : 'Penjaga'
                   }
                 </h3>
-                 <div className={`overflow-hidden transition-all duration-500 ease-in-out bg-blue-soft flex flex-col items-center ${isOpen === index ? 'max-h-dvh py-5 opacity-100 rounded-b-md' : 'max-h-0 opacity-0'}`}>
+                 <div className={`bg-blue_paisley overflow-hidden transition-all duration-500 ease-in-out bg-blue-soft flex flex-col items-center ${isOpen === index ? 'max-h-dvh py-5 opacity-100 rounded-b-md' : 'max-h-0 opacity-0'}`}>
                    <img src={value.image_url} alt={value.status} width={125} className="rounded-full mb-5"/>
                    <h4 className="text-center font-semibold tracking-wide">
                      {value.name}

@@ -4,7 +4,7 @@ import { Footer } from 'flowbite-react';
 export default function FooterCustome() {
   return (
     <>
-      <Footer container className='bg-blue_paisley text-center py-16 sm:text-base text-sm border-none'>
+      <Footer container className='bg-blue_paisley text-center py-16 sm:text-base text-sm rounded-none'>
         {/* <h2 className="lg:text-xl text-base font-semibold tracking-widest">UPTD SDN 2 KALIMATI</h2>
         <h3 className="font-semibold tracking-wide">KECAMATAN JATIBARANG KABUPATEN INDRAMAYU
         </h3> */}
