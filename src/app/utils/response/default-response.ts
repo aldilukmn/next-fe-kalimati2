@@ -1,12 +1,13 @@
-import GtkEntity from '@/app/models/entity';
+import GtkEntity from '@/app/models/entity/gtk-entity';
+import UserEntity from '@/app/models/entity/user-entity';
 
-interface DefaultGtkResponse {
+export default interface DefaultResponse {
   status: {
     code: number,
     response: string,
     message: string,
   };
-  result: GtkEntity[]
+  result: GtkEntity[] |
+          UserEntity |
+          string
 }
-
-export type { DefaultGtkResponse }

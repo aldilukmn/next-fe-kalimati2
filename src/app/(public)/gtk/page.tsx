@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SkeletonLoader from '../components/skeleton-loader/skeleton-skeleton-loader';
 import { DefaultGtkResponse } from '@/app/utils/response/default-response';
-import GtkEntity from '@/app/models/entity';
+import GtkEntity from '@/app/models/entity/gtk-entity';
 import { AppDispatch, RootState } from '@/app/config/redux/store';
 
 export default function page() {

@@ -9,6 +9,8 @@ import { setIsLoading } from '@/app/config/redux/action/loading.action';
 import { firstCapitalizeWord } from '@/app/utils/first-cap';
 import showToast from '@/app/helpers/show-toast';
 import { setToastMessage } from '@/app/config/redux/action/toast-action';
+import handleUser from '@/app/utils/user/handle-login';
+import UserType from '@/app/utils/user/type';
 
 export default function Login() {
   const dispatch = useDispatch<AppDispatch>();
@@ -38,18 +40,17 @@ export default function Login() {
     dispatch(setIsLoading(true));
     try {
       e.preventDefault();
-      // const payload: UserType = {
-      //   username,
-      //   password
-      // };
-      // const response = await LoginUser.doLogin(payload);
-
-      // if (response.status.code === 400) {
-      //   throw new Error(response.status.message);
-      // }
-      dispatch(setToastMessage('response.status.message'));
-      // const isToken = response.result as string;
-      // localStorage.setItem('access_token', isToken);
+      const payload: UserType = {
+        username,
+        password
+      };
+      const response = await handleUser.doLogin(payload);
+      if (response.status.code === 400) {
+        throw new Error(response.status.message);
+      }
+      dispatch(setToastMessage(response.status.message));
+      const isToken = response.result as string
+      localStorage.setItem('access_token', isToken);
       router.push('/dashboard');
     } catch (e) {
       if (e instanceof Error) {
