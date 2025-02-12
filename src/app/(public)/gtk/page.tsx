@@ -29,9 +29,9 @@ export default function page() {
     const getData = async () => {
       try {
         dispatch(setIsLoading(true));
-        const data: DefaultGtkResponse = await DataGtk.getGtk();
+        const data: DefaultResponse = await DataGtk.getGtk();
         if (data.status.code === 400) throw new Error();
-        const sortedData: GtkEntity[] = data.result?.sort((a, b) => {
+        const sortedData: GtkEntity[] = Array.isArray(data.result) ? data.result.sort((a, b) => {
           const classA = a.class_gtk;
           const classB = b.class_gtk;
           if (a.status.includes('penjaga')) return 1;
@@ -41,7 +41,7 @@ export default function page() {
           if (classA > classB) return 1;
 
           return 0;
-        }) || [];
+        }) : [];
         setGtk(sortedData);
       } catch (error) {
         if (error instanceof Error) {
