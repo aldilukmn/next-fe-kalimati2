@@ -4,7 +4,7 @@ import {DefaultResponse} from '../response/default-response';
 import UserType from './type';
 
 export default class handleUser {
-  static baseUrl: string = 'http://localhost:3001/api/users';
+  static baseUrl: string = 'user-service-kalimati2.vercel.app/api/users';
   static async doLogin(payload: UserType): Promise<DefaultResponse> {
     const response = await fetch(
       `${this.baseUrl}/login`, {
