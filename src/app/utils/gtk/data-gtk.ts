@@ -1,4 +1,4 @@
-import DefaultResponse from '../response/default-response';
+import { DefaultResponse } from '../response/default-response';
 
 export default class DataGtk {
   static baseUrl: string = 'https://api-uptdsdn2kalimati.vercel.app/api/v1/gtk';
