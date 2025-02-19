@@ -11,6 +11,7 @@ import showToast from '@/app/helpers/show-toast';
 import { setToastMessage } from '@/app/config/redux/action/toast-action';
 import handleUser from '@/app/utils/user/handle-login';
 import UserType from '@/app/utils/user/type';
+import { setKeyToken } from '@/app/config/redux/action/key-token.action';
 
 export default function Login() {
   const dispatch = useDispatch<AppDispatch>();
@@ -49,9 +50,8 @@ export default function Login() {
         throw new Error(response.status.message);
       }
       dispatch(setToastMessage(response.status.message));
-      const isToken = response.result as string
-      localStorage.setItem('access_token', isToken);
-      router.push('/dashboard');
+      dispatch(setKeyToken(response.result.token));
+      router.push('/admin');
     } catch (e) {
       if (e instanceof Error) {
         showToast(firstCapitalizeWord(e.message), 'error')
@@ -59,7 +59,7 @@ export default function Login() {
     } finally {
       dispatch(setIsLoading(false));
     }
-  }
+  };
 
   return (
     <>

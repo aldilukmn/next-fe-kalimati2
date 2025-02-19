@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from "react";
 
-interface NavLinkProps {
+interface NavLinkType {
   to: string;
   children: React.ReactNode;
   className?: string;
   needHover: boolean
 }
 
-const Navlink: React.FC<NavLinkProps> = ({to, children, className, needHover}) => {
+const Navlink: React.FC<NavLinkType> = ({to, children, className, needHover}) => {
   const location = usePathname();
   const isActive: boolean = location === to;
   const { width } = useScreenSize();

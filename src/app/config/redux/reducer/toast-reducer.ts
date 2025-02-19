@@ -16,7 +16,7 @@ export const toastReducer = (
     return {
       ...state,
       message: action.payload
-    }
-  }
-  return state
-}
+    };
+  };
+  return state;
+};
