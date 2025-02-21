@@ -5,14 +5,12 @@ import { RoleType } from './app/utils/response/default-response';
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get('auth_token')?.value;
   const { pathname } = req.nextUrl;
-  console.log('Token from cookie:', token);
   if (!token) {
     if (pathname.startsWith('/admin')) {
       return NextResponse.redirect(new URL('/login', req.url));
     };
     return NextResponse.next();
   };
-
   const splitBearer = token.startsWith('Bearer ') ? token.split(' ')[1] : token;
   if (!splitBearer) {
     return NextResponse.redirect(new URL('/login', req.url));
@@ -33,5 +31,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*', '/login'],
+  matcher: ['/admin', '/login'],
 }
