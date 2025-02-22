@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server'
-import { jwtDecode } from 'jwt-decode';
-import { RoleType } from './app/utils/response/default-response';
+// import { jwtDecode } from 'jwt-decode';
+// import { RoleType } from './app/utils/response/default-response';
 
 const isProtectedRoute = (pathname: string) => pathname.startsWith('/admin');
 
@@ -13,14 +13,14 @@ export function middleware(req: NextRequest) {
       NextResponse.redirect(new URL('/login', req.url))
       : NextResponse.next();
   };
-  const splitBearer = token.startsWith('Bearer ') ? token.split(' ')[1] : token;
-  const decoded: RoleType = jwtDecode(splitBearer);
-  const userTime: number = Number(decoded.exp) * 1000;
-  const currentTime: number = new Date().getTime();
+  // const splitBearer = token.startsWith('Bearer ') ? token.split(' ')[1] : token;
+  // const decoded: RoleType = jwtDecode(splitBearer);
+  // const userTime: number = Number(decoded.exp) * 1000;
+  // const currentTime: number = new Date().getTime();
 
-  if (currentTime > userTime) {
-    return NextResponse.redirect(new URL('/login', req.url));
-  }
+  // if (currentTime > userTime) {
+  //   return NextResponse.redirect(new URL('/login', req.url));
+  // }
 
   if (pathname.startsWith('/login')) {
     return NextResponse.redirect(new URL('/admin', req.url));
