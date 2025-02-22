@@ -3,16 +3,11 @@ import { NextResponse } from 'next/server'
 import { jwtDecode } from 'jwt-decode';
 import { RoleType } from './app/utils/response/default-response';
 
-const isProtectedRoute = (pathname: string) => pathname.startsWith('/admin');
-
-
 export function middleware(req: NextRequest) {
   const token = req.cookies.get('auth_token')?.value;
   const { pathname } = req.nextUrl;
   if (!token) {
-    return isProtectedRoute(pathname) ?
-      NextResponse.redirect(new URL('/login', req.url))
-      : NextResponse.next();
+    return NextResponse.redirect(new URL('/login', req.url));
   };
   const splitBearer = token.startsWith('Bearer ') ? token.split(' ')[1] : token;
   const decoded: RoleType = jwtDecode(splitBearer);
