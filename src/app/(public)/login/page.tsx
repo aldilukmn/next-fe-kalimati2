@@ -39,7 +39,6 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     dispatch(setIsLoading(true));
-    'use server';
     try {
       e.preventDefault();
       const payload: UserType = {
