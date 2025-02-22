@@ -1,8 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server'
 import { jwtDecode } from 'jwt-decode';
 import { RoleType } from './app/utils/response/default-response';
 
-export async function middleware(req: NextRequest) {
+export function middleware(req: NextRequest) {
   const token = req.cookies.get('auth_token')?.value;
   const { pathname } = req.nextUrl;
   if (!token) {
@@ -12,9 +13,6 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   };
   const splitBearer = token.startsWith('Bearer ') ? token.split(' ')[1] : token;
-  if (!splitBearer) {
-    return NextResponse.redirect(new URL('/login', req.url));
-  }
   const decoded: RoleType = jwtDecode(splitBearer);
   const userTime: number = Number(decoded.exp) * 1000;
   const currentTime: number = new Date().getTime();
@@ -31,5 +29,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin', '/login'],
+  matcher: ['/admin/:path*', '/login'],
 }

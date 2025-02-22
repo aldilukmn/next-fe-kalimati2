@@ -19,7 +19,7 @@ export default function Dashboard() {
   }, [dispatch]);
   return (
     <>
-      <h1>{userToken}</h1>
+      <h1>aneh</h1>
     </>
   )
 }

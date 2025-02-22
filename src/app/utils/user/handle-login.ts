@@ -1,10 +1,9 @@
-'use client'
 import Methods from '@/app/helpers/methods';
 import {DefaultResponse} from '../response/default-response';
 import UserType from './type';
 
 export default class handleUser {
-  static baseUrl: string = 'https://user-service-kalimati2.vercel.app/api/users';
+  static baseUrl: string = 'http://localhost:3001/api/users';
   static async doLogin(payload: UserType): Promise<DefaultResponse> {
     const response = await fetch(
       `${this.baseUrl}/login`, {
@@ -17,7 +16,7 @@ export default class handleUser {
         password: payload.password
       }),
       credentials: 'include'
-    }
+    },
     );
     const data = await response.json();
     return data;
