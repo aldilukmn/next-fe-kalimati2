@@ -5,18 +5,18 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Dashboard() {
-  const dispatch = useDispatch();
-  const userToken = useSelector((state: RootState) => state.keyTokenReducer.keyToken);
-  useEffect(() => {
-    fetch('/api/auth')
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch(setKeyToken(data.tokenValue));
-    })
-    .catch(() => {
-      dispatch(setKeyToken(''));
-    });
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // const userToken = useSelector((state: RootState) => state.keyTokenReducer.keyToken);
+  // useEffect(() => {
+  //   fetch('/api/auth')
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     dispatch(setKeyToken(data.tokenValue));
+  //   })
+  //   .catch(() => {
+  //     dispatch(setKeyToken(''));
+  //   });
+  // }, [dispatch]);
   return (
     <>
       <h1>aneh</h1>
