@@ -7,7 +7,7 @@ const isProtectedRoute = (pathname: string) => pathname.startsWith('/admin');
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  if (pathname.startsWith('/dashboard')) {
+  if (pathname.startsWith('/admin')) {
     const token = req.cookies.get('auth_token')?.value;
       if (!token) {
         return isProtectedRoute(pathname) ?
