@@ -1,4 +1,3 @@
-'use client'
 import Methods from '@/app/helpers/methods';
 import {DefaultResponse} from '../response/default-response';
 import UserType from './type';
@@ -17,7 +16,7 @@ export default class handleUser {
         password: payload.password
       }),
       credentials: 'include'
-    }
+    },
     );
     const data = await response.json();
     return data;
