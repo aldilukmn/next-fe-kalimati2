@@ -5,6 +5,7 @@ import { RoleType } from './app/utils/response/default-response';
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get('user_session')?.value;
   const { pathname } = req.nextUrl;
+  console.log(token);
   if (!token) {
     if (pathname.startsWith('/admin')) {
       return NextResponse.redirect(new URL('/login', req.url));
