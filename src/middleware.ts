@@ -3,7 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 import { RoleType } from './app/utils/response/default-response';
 
 export async function middleware(req: NextRequest) {
-  const token = req.cookies.get('auth_token')?.value;
+  const token = req.cookies.get('user_session')?.value;
   const { pathname } = req.nextUrl;
   if (!token) {
     if (pathname.startsWith('/admin')) {

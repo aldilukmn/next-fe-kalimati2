@@ -15,7 +15,7 @@ export default class handleUser {
         username: payload.username,
         password: payload.password
       }),
-      credentials: 'include'
+        credentials: 'include',
     },
     );
     const data = await response.json();
